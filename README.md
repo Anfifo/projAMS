@@ -62,7 +62,7 @@
 * atores que interagem com SI-BAIK:
 	* Cliente Particular
 	* Gateway Bancária
-	* BIA
+	* BICA
 	* Técnico do Departamente de Manutenção
 	* Coordenador do Departamente de Manutenção
 	* Técnico do Departamente de Apoio ao Cliente
