@@ -76,6 +76,52 @@
 		* assume-se que o cliente está a utilizar o Serviço
 * Assim, cada BICA vai continuamente emitindo a sua localização para o
   BAIK-MEDIAÇÃO
+  	* Esta informação é usada para calclar a taxação dos clientes que
+		subscreveram a taxação por distância.
+  	* A BAIK-MEDIAÇÃO agrega as localizações, calcula as distâncias e envia à
+  		BAIK-TAXAÇÃO
+* Para clientes pré-pagos a taxação é feita simultaneamente à sua utilização.
+* Em qualquer local de estacionamento (na mesma cidade) a BICA pode ser devolvida
+	* Quando a bicicleta é localizada junto a um local de estacionamento
+		O cliente indica na BAIK-APP que pretende bloquear
+		* é então iniciada a fase de devolução
+* Na fase de Devolução a BICA é bloqueada
+	* em simultâneo os registos de utilização agregados pela BAIK-MEDIAÇÃO são comunicados
+	à BAIK-TAXAÇÃO (que calcula o montante do pagamento da utilização pós-pagos)
+	* A BAIK-TAXAÇÃO comnica ao BAIK-ERP, que usando o BAIK-API realiza pedido de cobrança
+	* Para os pré-pagos são feitos ajustes relativos somente à última parcela
+	de minuto ou quilómetro.
+* O montante reservado no momento do levantamento da BICA é devolvido.
+* O recibo do pagamento é enviado para o e-mail do cliente.
+* É enviado um pedido de avaliação da experiència ao cliente, via sms
+	* esta informação é submetida via BAIK-APP e enviado ao BAIK-ERP
+
+#### Serviço de Manutenção das bicicletas
+* Os funcionários de manutenção estão alocados continuamente á recuperação e arranjo
+das Bicas.
+	* Na execução destas tarefas, são responsáveis por:
+		* localizar BICAS desbloqueadas
+		* de seguida iniciar a sua manutenção
+* Sempre que um funcionário inicia a manutenção de qualquer BICA:
+	* esta é desbloqueada
+	* o BAIK-ERP notificado sobre o inicio dos trabalhos de manutenção
+* De seguida o funcionário verifica se há algum arranjo a fazer:
+	* se não:
+		* a BICA é desbloqueada
+	* se sim:
+		* o funcionário tem um período máximo de 30 minutos para executar o arranjo
+	* no final da execução do arranjo:
+		* o BAIK-ERP é informado sobre a manutenção efetuados
+			* para fins historicos e estatisticos
+* Caso o período máximo de 30 minutos seja ultrapassado então segue-se o
+  procedimento de escala para o Coordenador da manutenção:
+  	* Este verficar no BAIK-ERP qual a distância já percorrida pela BICA.
+		* em função deste valor irá decidir se é:
+			* abatida
+			* enviada para a oficina
+		* qualquer dos casos a decisão é registada no BAIK-ERP e a BICA não desbloqueia
+* No final, para o registo, e em qualquer dos casos anteriores, o BAIK-ERP
+	* é sempre notificado sobre o término do processo de manutenção.
 
 ## UML
 * atores que interagem com SI-BAIK:
