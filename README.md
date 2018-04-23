@@ -1,5 +1,5 @@
-#Projeto de AMS
-## REVISAO:
+# Projeto de AMS
+## REVISÃO:
 * Process Diagrams (Private and Public) Represents regular
 	flow between tasks, events and decision
 	points to complete a process in the organization.
@@ -27,7 +27,7 @@
 	* BAIK CRM
 	* BAIK TAXAÇÃO
 	* BAIK MEDIAÇÃO
-* participantes envolvidos somente em processos p�blicos
+* participantes envolvidos somente em processos públicos
 	* BICA
 	* Cliente Particular
 	* GatewayBank
